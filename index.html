@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GAL Electricidad - Electricista matriculado en Córdoba Capital. Instalaciones eléctricas seguras, rápidas y garantizadas." />
+  <title>GAL Electricidad | Electricista Matriculado - Córdoba</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --yellow:     #FFC107;
+      --yellow-dark:#E6AC00;
+      --yellow-glow:rgba(255, 193, 7, 0.18);
+      --black:      #0A0A0A;
+      --black-soft: #111111;
+      --grey-dark:  #1A1A1A;
+      --grey-mid:   #2C2C2C;
+      --grey-light: #F5F5F5;
+      --white:      #FFFFFF;
+      --text-muted: #888888;
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  24px;
+      --radius-xl:  32px;
+      --shadow-sm:  0 2px 12px rgba(0,0,0,0.08);
+      --shadow-md:  0 8px 32px rgba(0,0,0,0.12);
+      --shadow-lg:  0 20px 60px rgba(0,0,0,0.18);
+      --shadow-yellow: 0 8px 32px rgba(255,193,7,0.25);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Inter', sans-serif;
+
+      /* ---- EDITAR AQUÍ ---- */
+      --whatsapp-number: "5493544564388"; /* Número sin + ni espacios */
+      --phone-number:    "3544564388";    /* Número de llamada */
+      /* --------------------- */
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ============================================
+       UTILITIES
+    ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      background: var(--yellow-glow);
+      border: 1px solid rgba(255,193,7,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .section-title span {
+      color: var(--yellow-dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       SCROLL ANIMATION
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+      padding: 12px 0;
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--yellow);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      color: var(--yellow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--black) !important;
+      padding: 9px 22px;
+      border-radius: 100px;
+      font-weight: 700 !important;
+      font-size: 0.85rem !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--yellow-dark);
+      color: var(--black) !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: color var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--yellow);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    #hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 60px;
+    }
+
+    /* Textura sutil de fondo */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255,193,7,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255,193,7,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Grid pattern */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,193,7,0.12);
+      border: 1px solid rgba(255,193,7,0.3);
+      border-radius: 100px;
+      padding: 8px 18px;
+      margin-bottom: 28px;
+      animation: fadeInDown 0.7s ease both;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    .hero-badge span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--yellow);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      animation: fadeInUp 0.7s 0.1s ease both;
+    }
+
+    .hero-title .accent {
+      color: var(--yellow);
+      display: inline-block;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.5);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.7s 0.2s ease both;
+    }
+
+    .hero-phrase {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.7s 0.3s ease both;
+    }
+
+    .hero-phrase strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      animation: fadeInUp 0.7s 0.4s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 100px;
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      box-shadow: var(--shadow-yellow);
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255,193,7,0.35);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      animation: fadeInUp 0.7s 0.5s ease both;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .stat-number span {
+      color: var(--yellow);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================
+       SERVICIOS
+    ============================================ */
+    #servicios {
+      padding: 100px 0;
+      background: var(--grey-light);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--yellow), var(--yellow-dark));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Tarjeta de emergencia destacada */
+    .service-card.emergency {
+      background: var(--black);
+      border-color: rgba(255,193,7,0.2);
+    }
+
+    .service-card.emergency::before {
+      transform: scaleX(1);
+    }
+
+    .service-card.emergency .service-title {
+      color: var(--white);
+    }
+
+    .service-card.emergency .service-desc {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .service-card.emergency .service-icon-wrap {
+      background: rgba(255,193,7,0.12);
+      border-color: rgba(255,193,7,0.2);
+    }
+
+    .service-icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,193,7,0.1);
+      border: 1px solid rgba(255,193,7,0.2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--black);
+      border-radius: 50%;
+      animation: pulse 1.5s ease infinite;
+    }
+
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ============================================
+       CONFIANZA
+    ============================================ */
+    #confianza {
+      padding: 100px 0;
+      background: var(--black);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .trust-item {
+      background: var(--black-soft);
+      padding: 44px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      transition: background var(--transition);
+    }
+
+    .trust-item:hover {
+      background: var(--grey-dark);
+    }
+
+    .trust-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .trust-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--yellow);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .trust-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .trust-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       GALERÍA
+    ============================================ */
+    #galeria {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Overlay con ícono de zoom */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+
+    .gallery-overlay span {
+      font-size: 2rem;
+      opacity: 0;
+      transform: scale(0.7);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .gallery-item:hover .gallery-overlay span {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ============================================
+       CONTACTO
+    ============================================ */
+    #contacto {
+      padding: 100px 0;
+      background: var(--grey-dark);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .contact-item-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,193,7,0.1);
+      border: 1px solid rgba(255,193,7,0.2);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--yellow);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .contact-item-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+    }
+
+    .contact-cta-box {
+      background: var(--black);
+      border: 1px solid rgba(255,193,7,0.1);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-cta-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .contact-cta-title span {
+      color: var(--yellow);
+    }
+
+    .contact-cta-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--yellow);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .footer-logo-text {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer-logo-text span {
+      color: var(--yellow);
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .footer-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .footer-info-item strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ============================================
+       BOTÓN FLOTANTE WHATSAPP
+    ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      text-decoration: none;
+      animation: floatIn 0.8s 1s ease both;
+    }
+
+    .whatsapp-float-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #25D366;
+      border-radius: 100px;
+      padding: 14px 14px;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .whatsapp-float:hover .whatsapp-float-inner {
+      padding: 14px 22px 14px 16px;
+      box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+      transform: translateY(-3px);
+    }
+
+    .whatsapp-float-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      fill: var(--white);
+    }
+
+    .whatsapp-float-text {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      transition: max-width 0.4s ease, margin 0.4s ease;
+      margin-left: 0;
+    }
+
+    .whatsapp-float:hover .whatsapp-float-text {
+      max-width: 140px;
+      margin-left: 10px;
+    }
+
+    /* ============================================
+       KEYFRAMES
+    ============================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: scale(0.6) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .stat-item {
+        min-width: 80px;
+      }
+
+      .stat-number {
+        font-size: 1.4rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item:last-child {
+        grid-column: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-info {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .contact-cta-box {
+        padding: 28px 24px;
+      }
+
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVBAR
+  ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#hero" class="logo">
+          <div class="logo-icon">⚡</div>
+          <span class="logo-text"><span>GAL</span> Electricidad</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#confianza">Nosotros</a></li>
+          <li><a href="#galeria">Trabajos</a></li>
+          <!-- Reemplazar con número real -->
+          <li><a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20un%20presupuesto" target="_blank" class="nav-cta">WhatsApp</a></li>
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" class="mobile-link">Servicios</a>
+    <a href="#confianza" class="mobile-link">Nosotros</a>
+    <a href="#galeria" class="mobile-link">Trabajos</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
+  </div>
+
+
+  <!-- ============================================
+       HERO
+  ============================================ -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Electricista Matriculado — Córdoba</span>
+        </div>
+
+        <p class="hero-sub">GAL Electricidad</p>
+
+        <h1 class="hero-title">
+          Instalaciones<br>
+          <span class="accent">seguras</span> y<br>
+          garantizadas.
+        </h1>
+
+        <p class="hero-phrase">
+          Soluciones eléctricas <strong>rápidas, seguras y con garantía escrita</strong>
+          para tu hogar o negocio. Presupuesto sin cargo.
+        </p>
+
+        <div class="hero-buttons">
+          <!-- Reemplazar número de WhatsApp -->
+          <a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" class="btn btn-primary">
+            <!-- WhatsApp icon SVG inline -->
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L.057 23.527a.5.5 0 00.61.627l5.813-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.003-1.373l-.358-.213-3.712.973.992-3.617-.234-.372A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+            Pedir presupuesto gratis
+          </a>
+
+          <!-- Reemplazar número de teléfono -->
+          <a href="tel:+5493544564388" class="btn btn-secondary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Llamar ahora
+          </a>
+        </div>
+
+        <!-- Stats rápidas -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">+<span>5</span></span>
+            <span class="stat-label">Años de exp.</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"><span>24</span>/7</span>
+            <span class="stat-label">Emergencias</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"><span>100</span>%</span>
+            <span class="stat-label">Garantizado</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"><span>$0</span></span>
+            <span class="stat-label">Presupuesto</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       SERVICIOS
+  ============================================ -->
+  <section id="servicios">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-label">Lo que hacemos</div>
+        <h2 class="section-title">Nuestros <span>servicios</span></h2>
+        <p class="section-subtitle">
+          Trabajos eléctricos de calidad con materiales certificados y mano de obra garantizada por escrito.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1 -->
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🏠</div>
+          <h3 class="service-title">Instalaciones domiciliarias</h3>
+          <p class="service-desc">
+            Instalaciones eléctricas completas para casas y departamentos. Planos, bocas de luz, tomacorrientes y más, todo según normativa.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🔧</div>
+          <h3 class="service-title">Reparaciones y mantenimiento</h3>
+          <p class="service-desc">
+            Diagnóstico y reparación de fallas eléctricas. Mantenimiento preventivo para evitar cortes y problemas futuros.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">⚡</div>
+          <h3 class="service-title">Tableros eléctricos</h3>
+          <p class="service-desc">
+            Instalación, ampliación y reemplazo de tableros. Llaves termomagnéticas, disyuntores y protección diferencial.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">💡</div>
+          <h3 class="service-title">Iluminación LED</h3>
+          <p class="service-desc">
+            Proyectos de iluminación interior y exterior. Instalación de tiras LED, dimmers, spots y sistemas inteligentes.
+          </p>
+        </div>
+
+        <!-- Card 5 - Emergencias (destacada) -->
+        <div class="service-card emergency reveal">
+          <div class="service-badge">
+            <div class="badge-dot"></div>
+            Disponible ahora
+          </div>
+          <div class="service-icon-wrap">🚨</div>
+          <h3 class="service-title">Emergencias 24 hs</h3>
+          <p class="service-desc">
+            Cortocircuitos, cortes de luz o cualquier urgencia eléctrica. Respuesta rápida las 24 horas, los 7 días de la semana.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CONFIANZA
+  ============================================ -->
+  <section id="confianza">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-label" style="background:rgba(255,193,7,0.08); border-color:rgba(255,193,7,0.2);">Por qué elegirnos</div>
+        <h2 class="section-title" style="color:var(--white);">Razones para <span>confiar</span> en nosotros</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.5); margin:0 auto;">
+          Más de 5 años de experiencia nos respaldan. Trabajo serio, prolijo y con garantía.
+        </p>
+      </div>
+
+      <div class="trust-grid">
+
+        <div class="trust-item reveal">
+          <div class="trust-icon">🏅</div>
+          <div class="trust-number">+5</div>
+          <div class="trust-title">Años de experiencia</div>
+          <div class="trust-desc">Cientos de trabajos realizados en hogares y comercios de Córdoba Capital.</div>
+        </div>
+
+        <div class="trust-item reveal">
+          <div class="trust-icon">✅</div>
+          <div class="trust-number">100%</div>
+          <div class="trust-title">Trabajo garantizado</div>
+          <div class="trust-desc">Todos nuestros trabajos tienen garantía por escrito. Materiales de primera calidad.</div>
+        </div>
+
+        <div class="trust-item reveal">
+          <div class="trust-icon">⚡</div>
+          <div class="trust-number">24/7</div>
+          <div class="trust-title">Atención rápida</div>
+          <div class="trust-desc">Respondemos rápido. Para emergencias, estamos disponibles las 24 horas.</div>
+        </div>
+
+        <div class="trust-item reveal">
+          <div class="trust-icon">💰</div>
+          <div class="trust-number">$0</div>
+          <div class="trust-title">Presupuesto sin cargo</div>
+          <div class="trust-desc">Visitamos tu propiedad, evaluamos el trabajo y te enviamos presupuesto detallado gratis.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       GALERÍA
+  ============================================ -->
+  <section id="galeria">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <div class="section-label">Nuestros trabajos</div>
+        <h2 class="section-title">Resultados que <span>hablan solos</span></h2>
+        <p class="section-subtitle">
+          Cada instalación refleja nuestro compromiso con la calidad, la seguridad y el detalle.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <!--
+          REEMPLAZAR estas imágenes con fotos reales de los trabajos.
+          Podés usar imágenes locales: src="img/trabajo1.jpg"
+          O subir las fotos a Cloudinary/ImgBB y poner la URL directa.
+        -->
+
+        <div class="gallery-item reveal-left">
+          <!-- Placeholder SVG generado inline como imagen -->
+          <img
+            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80"
+            alt="Instalación de tablero eléctrico"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>🔍</span></div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+            alt="Instalación eléctrica domiciliaria"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>🔍</span></div>
+        </div>
+
+        <div class="gallery-item reveal-right">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+            alt="Iluminación LED instalada"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>🔍</span></div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <p style="font-size:0.9rem; color:var(--text-muted);">
+          ¿Querés ver más trabajos?
+          <a href="https://wa.me/5493544564388" target="_blank" style="color:var(--yellow-dark); font-weight:600; text-decoration:none;">
+            Escribinos por WhatsApp →
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CONTACTO
+  ============================================ -->
+  <section id="contacto">
+    <div class="container">
+
+      <div class="contact-wrapper">
+
+        <!-- Info de contacto -->
+        <div class="contact-info reveal-left">
+
+          <div>
+            <div class="section-label" style="background:rgba(255,193,7,0.08); border-color:rgba(255,193,7,0.2);">Contacto</div>
+            <h2 class="section-title" style="color:var(--white);">Hablemos de tu <span>proyecto</span></h2>
+            <p style="font-size:0.95rem; color:rgba(255,255,255,0.45); line-height:1.7; margin-top:8px;">
+              Contanos qué necesitás y te respondemos a la brevedad con un presupuesto sin cargo.
+            </p>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div>
+              <div class="contact-item-label">WhatsApp</div>
+              <!-- Reemplazar número -->
+              <div class="contact-item-value">+54 9 3544 56-4388</div>
+              <div class="contact-item-sub">Respuesta rápida garantizada</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Teléfono</div>
+              <!-- Reemplazar número -->
+              <div class="contact-item-value">(03544) 56-4388</div>
+              <div class="contact-item-sub">Lun–Sáb, 8:00 a 20:00</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Zona de trabajo</div>
+              <div class="contact-item-value">Córdoba Capital</div>
+              <div class="contact-item-sub">Y alrededores</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <div class="contact-item-label">Horario</div>
+              <div class="contact-item-value">Lun–Sáb: 8:00 – 20:00</div>
+              <div class="contact-item-sub">Emergencias 24/7</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA Box -->
+        <div class="contact-cta-box reveal-right">
+          <div class="contact-cta-title">
+            ¿Necesitás un <span>electricista ahora</span>?
+          </div>
+          <p class="contact-cta-desc">
+            Mandanos un mensaje por WhatsApp con una foto o descripción del problema y te respondemos en minutos.
+            Presupuesto completamente sin cargo.
+          </p>
+          <div class="contact-buttons">
+
+            <!-- Reemplazar número de WhatsApp -->
+            <a
+              href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20solicitar%20un%20presupuesto%20sin%20cargo"
+              target="_blank"
+              class="btn btn-primary btn-full"
+            >
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L.057 23.527a.5.5 0 00.61.627l5.813-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.003-1.373l-.358-.213-3.712.973.992-3.617-.234-.372A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+              </svg>
+              Escribir por WhatsApp
+            </a>
+
+            <!-- Reemplazar número -->
+            <a href="tel:+5493544564388" class="btn btn-secondary btn-full">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              Llamar directamente
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo">
+            <div class="footer-logo-icon">⚡</div>
+            <span class="footer-logo-text"><span>GAL</span> Electricidad</span>
+          </a>
+          <span class="footer-tagline">Electricista Matriculado — Córdoba Capital</span>
+        </div>
+
+        <div class="footer-info">
+          <!-- Reemplazar datos -->
+          <div class="footer-info-item">
+            📞 <strong>(03544) 56-4388</strong>
+          </div>
+          <div class="footer-info-item">
+            📱 <strong>+54 9 3544 56-4388</strong>
+          </div>
+          <div class="footer-info-item">
+            📍 <strong>Córdoba Capital</strong>
+          </div>
+          <div class="footer-info-item">
+            🕐 <strong>Lun–Sáb 8–20 hs · Emerg. 24/7</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 GAL Electricidad. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================
+       BOTÓN FLOTANTE WHATSAPP
+  ============================================ -->
+  <!-- Reemplazar número de WhatsApp -->
+  <a
+    href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20necesito%20ayuda"
+    target="_blank"
+    class="whatsapp-float"
+    aria-label="Contactar por WhatsApp"
+  >
+    <div class="whatsapp-float-inner">
+      <svg class="whatsapp-float-icon" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.537 4.09 1.562 5.853L.057 23.527a.5.5 0 00.61.627l5.813-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.003-1.373l-.358-.213-3.712.973.992-3.617-.234-.372A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+      </svg>
+      <span class="whatsapp-float-text">¡Escribinos!</span>
+    </div>
+  </a>
+
+
+  <!-- ============================================
+       JAVASCRIPT
+  ============================================ -->
+  <script>
+    // --- Navbar: añadir clase al hacer scroll ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+
+    // --- Hamburger menu ---
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Cerrar menú móvil al hacer click en un enlace
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+
+    // --- Scroll reveal (IntersectionObserver) ---
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Añadir pequeño delay escalonado para cards
+          const siblings = entry.target.parentElement.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+          let delay = 0;
+          siblings.forEach((el, i) => {
+            if (el === entry.target) delay = i * 80;
+          });
+
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
