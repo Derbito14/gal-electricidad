@@ -154,7 +154,7 @@
       z-index: 1000;
       padding: 12px 0;
       background: transparent;
-      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition), transform 0.35s ease;
     }
 
     .navbar.scrolled {
@@ -1544,10 +1544,33 @@
        JAVASCRIPT
   ============================================ -->
   <script>
-    // --- Navbar: añadir clase al hacer scroll ---
+    // --- Navbar: fondo al scrollear + ocultar/mostrar en mobile ---
     const navbar = document.getElementById('navbar');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          // Fondo oscuro cuando hay scroll (desktop y mobile)
+          navbar.classList.toggle('scrolled', currentScrollY > 40);
+
+          // Solo en mobile: ocultar al bajar, mostrar al subir
+          if (window.innerWidth <= 768) {
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+              navbar.style.transform = 'translateY(-100%)';
+            } else {
+              navbar.style.transform = 'translateY(0)';
+            }
+          }
+
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
 
 
