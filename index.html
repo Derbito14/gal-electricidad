@@ -1033,9 +1033,16 @@
     }
 
     /* Mobile */
-    /* Logo más grande en desktop */
+    /* Tamaño del logo según dispositivo */
+    .navbar-logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
     @media (min-width: 641px) {
-      .navbar-top img {
+      .navbar-logo {
         height: 140px;
       }
     }
@@ -1113,7 +1120,7 @@
     <div class="navbar-top">
       <div class="container">
         <a href="#hero" class="logo">
-          <img src="logo.jpg" alt="GAL Electricidad" style="height:80px; width:auto; object-fit:contain; display:block;" />
+          <img src="logo.jpg" alt="GAL Electricidad" class="navbar-logo" />
         </a>
         <button class="hamburger" id="hamburger" aria-label="Menú">
           <span></span>
