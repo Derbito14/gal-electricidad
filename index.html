@@ -22,9 +22,11 @@
     }
 
     :root {
-      --yellow:     #FFC107;
-      --yellow-dark:#E6AC00;
-      --yellow-glow:rgba(255, 193, 7, 0.18);
+      --blue:       #1565C0;
+      --blue-dark:  #0C1F6B;
+      --blue-light: #38B6FF;
+      --blue-glow:  rgba(21, 101, 192, 0.18);
+      --gold:       #F9D400;
       --black:      #0A0A0A;
       --black-soft: #111111;
       --grey-dark:  #1A1A1A;
@@ -39,7 +41,7 @@
       --shadow-sm:  0 2px 12px rgba(0,0,0,0.08);
       --shadow-md:  0 8px 32px rgba(0,0,0,0.12);
       --shadow-lg:  0 20px 60px rgba(0,0,0,0.18);
-      --shadow-yellow: 0 8px 32px rgba(255,193,7,0.25);
+      --shadow-blue: 0 8px 32px rgba(21, 101, 192, 0.35);
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --font: 'Inter', sans-serif;
 
@@ -78,9 +80,9 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--yellow-dark);
-      background: var(--yellow-glow);
-      border: 1px solid rgba(255,193,7,0.3);
+      color: var(--blue-dark);
+      background: var(--blue-glow);
+      border: 1px solid rgba(21,101,192,0.35);
       border-radius: 100px;
       padding: 6px 16px;
       margin-bottom: 16px;
@@ -95,7 +97,7 @@
     }
 
     .section-title span {
-      color: var(--yellow-dark);
+      color: var(--blue);
     }
 
     .section-subtitle {
@@ -150,7 +152,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 18px 0;
+      padding: 12px 0;
       transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
     }
 
@@ -159,7 +161,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 2px 24px rgba(0,0,0,0.3);
-      padding: 12px 0;
+      padding: 8px 0;
     }
 
     .navbar-inner {
@@ -178,7 +180,7 @@
     .logo-icon {
       width: 38px;
       height: 38px;
-      background: var(--yellow);
+      background: var(--blue);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
@@ -194,7 +196,7 @@
     }
 
     .logo-text span {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     .nav-links {
@@ -213,12 +215,12 @@
     }
 
     .nav-links a:hover {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     .nav-cta {
-      background: var(--yellow);
-      color: var(--black) !important;
+      background: var(--blue);
+      color: var(--white) !important;
       padding: 9px 22px;
       border-radius: 100px;
       font-weight: 700 !important;
@@ -226,8 +228,8 @@
     }
 
     .nav-cta:hover {
-      background: var(--yellow-dark);
-      color: var(--black) !important;
+      background: var(--blue-dark);
+      color: var(--white) !important;
     }
 
     /* Hamburger */
@@ -286,7 +288,7 @@
     }
 
     .mobile-menu a:hover {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     /* ============================================
@@ -308,8 +310,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255,193,7,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(255,193,7,0.04) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(56,182,255,0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(21,101,192,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -335,8 +337,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,193,7,0.12);
-      border: 1px solid rgba(255,193,7,0.3);
+      background: rgba(21,101,192,0.12);
+      border: 1px solid rgba(21,101,192,0.35);
       border-radius: 100px;
       padding: 8px 18px;
       margin-bottom: 28px;
@@ -346,7 +348,7 @@
     .hero-badge-dot {
       width: 8px;
       height: 8px;
-      background: var(--yellow);
+      background: var(--blue-light);
       border-radius: 50%;
       animation: pulse 2s ease infinite;
     }
@@ -354,7 +356,7 @@
     .hero-badge span {
       font-size: 0.82rem;
       font-weight: 600;
-      color: var(--yellow);
+      color: var(--blue-light);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -370,7 +372,7 @@
     }
 
     .hero-title .accent {
-      color: var(--yellow);
+      color: var(--blue-light);
       display: inline-block;
     }
 
@@ -423,15 +425,15 @@
     }
 
     .btn-primary {
-      background: var(--yellow);
-      color: var(--black);
-      box-shadow: var(--shadow-yellow);
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: var(--shadow-blue);
     }
 
     .btn-primary:hover {
-      background: var(--yellow-dark);
+      background: var(--blue-dark);
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(255,193,7,0.35);
+      box-shadow: 0 12px 40px rgba(21,101,192,0.45);
     }
 
     .btn-primary:active {
@@ -483,7 +485,7 @@
     }
 
     .stat-number span {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     .stat-label {
@@ -535,7 +537,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--yellow), var(--yellow-dark));
+      background: linear-gradient(90deg, var(--blue), var(--blue-dark));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform var(--transition);
@@ -553,7 +555,7 @@
     /* Tarjeta de emergencia destacada */
     .service-card.emergency {
       background: var(--black);
-      border-color: rgba(255,193,7,0.2);
+      border-color: rgba(21,101,192,0.25);
     }
 
     .service-card.emergency::before {
@@ -569,15 +571,15 @@
     }
 
     .service-card.emergency .service-icon-wrap {
-      background: rgba(255,193,7,0.12);
-      border-color: rgba(255,193,7,0.2);
+      background: rgba(21,101,192,0.12);
+      border-color: rgba(21,101,192,0.25);
     }
 
     .service-icon-wrap {
       width: 56px;
       height: 56px;
-      background: rgba(255,193,7,0.1);
-      border: 1px solid rgba(255,193,7,0.2);
+      background: rgba(21,101,192,0.1);
+      border: 1px solid rgba(21,101,192,0.25);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
@@ -590,8 +592,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--yellow);
-      color: var(--black);
+      background: var(--blue);
+      color: var(--white);
       font-size: 0.7rem;
       font-weight: 800;
       letter-spacing: 0.08em;
@@ -604,7 +606,7 @@
     .badge-dot {
       width: 6px;
       height: 6px;
-      background: var(--black);
+      background: var(--white);
       border-radius: 50%;
       animation: pulse 1.5s ease infinite;
     }
@@ -662,7 +664,7 @@
     .trust-number {
       font-size: 2.5rem;
       font-weight: 900;
-      color: var(--yellow);
+      color: var(--blue-light);
       letter-spacing: -0.04em;
       line-height: 1;
     }
@@ -770,8 +772,8 @@
     .contact-item-icon {
       width: 48px;
       height: 48px;
-      background: rgba(255,193,7,0.1);
-      border: 1px solid rgba(255,193,7,0.2);
+      background: rgba(21,101,192,0.1);
+      border: 1px solid rgba(21,101,192,0.25);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
@@ -783,7 +785,7 @@
     .contact-item-label {
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--yellow);
+      color: var(--blue);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 4px;
@@ -803,7 +805,7 @@
 
     .contact-cta-box {
       background: var(--black);
-      border: 1px solid rgba(255,193,7,0.1);
+      border: 1px solid rgba(21,101,192,0.1);
       border-radius: var(--radius-xl);
       padding: 44px;
       display: flex;
@@ -819,7 +821,7 @@
     }
 
     .contact-cta-title span {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     .contact-cta-desc {
@@ -872,7 +874,7 @@
     .footer-logo-icon {
       width: 32px;
       height: 32px;
-      background: var(--yellow);
+      background: var(--blue);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -887,7 +889,7 @@
     }
 
     .footer-logo-text span {
-      color: var(--yellow);
+      color: var(--blue);
     }
 
     .footer-tagline {
@@ -1092,8 +1094,7 @@
     <div class="container">
       <div class="navbar-inner">
         <a href="#hero" class="logo">
-          <div class="logo-icon">⚡</div>
-          <span class="logo-text"><span>GAL</span> Electricidad</span>
+          <img src="logo.jpg" alt="GAL Electricidad" style="height:80px; width:auto; object-fit:contain; display:block; border-radius: 12px; background: rgba(255,255,255,0.07); padding: 4px 8px;" />
         </a>
 
         <ul class="nav-links">
@@ -1269,7 +1270,7 @@
     <div class="container">
 
       <div class="section-header reveal">
-        <div class="section-label" style="background:rgba(255,193,7,0.08); border-color:rgba(255,193,7,0.2);">Por qué elegirnos</div>
+        <div class="section-label" style="background:rgba(21,101,192,0.1); border-color:rgba(21,101,192,0.25);">Por qué elegirnos</div>
         <h2 class="section-title" style="color:var(--white);">Razones para <span>confiar</span> en nosotros</h2>
         <p class="section-subtitle" style="color:rgba(255,255,255,0.5); margin:0 auto;">
           Más de 5 años de experiencia nos respaldan. Trabajo serio, prolijo y con garantía.
@@ -1366,7 +1367,7 @@
       <div style="text-align:center; margin-top:40px;" class="reveal">
         <p style="font-size:0.9rem; color:var(--text-muted);">
           ¿Querés ver más trabajos?
-          <a href="https://wa.me/5493544564388" target="_blank" style="color:var(--yellow-dark); font-weight:600; text-decoration:none;">
+          <a href="https://wa.me/5493544564388" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">
             Escribinos por WhatsApp →
           </a>
         </p>
@@ -1388,7 +1389,7 @@
         <div class="contact-info reveal-left">
 
           <div>
-            <div class="section-label" style="background:rgba(255,193,7,0.08); border-color:rgba(255,193,7,0.2);">Contacto</div>
+            <div class="section-label" style="background:rgba(21,101,192,0.1); border-color:rgba(21,101,192,0.25);">Contacto</div>
             <h2 class="section-title" style="color:var(--white);">Hablemos de tu <span>proyecto</span></h2>
             <p style="font-size:0.95rem; color:rgba(255,255,255,0.45); line-height:1.7; margin-top:8px;">
               Contanos qué necesitás y te respondemos a la brevedad con un presupuesto sin cargo.
@@ -1484,8 +1485,7 @@
 
         <div class="footer-brand">
           <a href="#hero" class="footer-logo">
-            <div class="footer-logo-icon">⚡</div>
-            <span class="footer-logo-text"><span>GAL</span> Electricidad</span>
+            <img src="logo.jpg" alt="GAL Electricidad" style="height:68px; width:auto; object-fit:contain; display:block; border-radius: 10px; background: rgba(255,255,255,0.06); padding: 3px 7px;" />
           </a>
           <span class="footer-tagline">Electricista Matriculado — Córdoba Capital</span>
         </div>
