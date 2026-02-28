@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="GAL Electricidad - Electricista matriculado en Córdoba Capital. Instalaciones eléctricas seguras, rápidas y garantizadas." />
   <title>GAL Electricidad | Electricista Matriculado - Córdoba</title>
 
@@ -153,6 +153,11 @@
       right: 0;
       z-index: 1000;
       padding: 12px 0;
+      padding-top: calc(12px + env(safe-area-inset-top, 0px));
+      background: transparent;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: transform;
       transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
     }
 
@@ -273,6 +278,9 @@
       align-items: center;
       justify-content: center;
       gap: 36px;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      -webkit-overflow-scrolling: touch;
     }
 
     .mobile-menu.open {
@@ -1101,7 +1109,7 @@
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#confianza">Nosotros</a></li>
           <li><a href="#galeria">Trabajos</a></li>
-          <!-- Reemplazar con número real -->
+          <li><a href="#contacto">Contacto</a></li>
           <li><a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20un%20presupuesto" target="_blank" class="nav-cta">WhatsApp</a></li>
         </ul>
 
@@ -1120,6 +1128,7 @@
     <a href="#confianza" class="mobile-link">Nosotros</a>
     <a href="#galeria" class="mobile-link">Trabajos</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
+    <a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20un%20presupuesto" target="_blank" class="mobile-link" style="color: var(--blue-light); font-size: 1.1rem;">WhatsApp ↗</a>
   </div>
 
 
