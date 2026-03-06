@@ -307,7 +307,7 @@
     ============================================ */
     #hero {
       min-height: 100vh;
-      background: var(--black);
+      background: var(--white);
       display: flex;
       align-items: center;
       position: relative;
@@ -315,26 +315,14 @@
       padding: 220px 0 60px;
     }
 
-    /* Textura sutil de fondo */
+    /* Gradiente sutil azul de fondo */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(56,182,255,0.1) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(21,101,192,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    /* Grid pattern */
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 60px 60px;
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(56,182,255,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(21,101,192,0.04) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -348,8 +336,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(21,101,192,0.12);
-      border: 1px solid rgba(21,101,192,0.35);
+      background: rgba(21,101,192,0.08);
+      border: 1px solid rgba(21,101,192,0.25);
       border-radius: 100px;
       padding: 8px 18px;
       margin-bottom: 28px;
@@ -359,7 +347,7 @@
     .hero-badge-dot {
       width: 8px;
       height: 8px;
-      background: var(--blue-light);
+      background: var(--blue);
       border-radius: 50%;
       animation: pulse 2s ease infinite;
     }
@@ -367,7 +355,7 @@
     .hero-badge span {
       font-size: 0.82rem;
       font-weight: 600;
-      color: var(--blue-light);
+      color: var(--blue-dark);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -376,20 +364,20 @@
       font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 900;
       line-height: 1.0;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.03em;
       margin-bottom: 12px;
       animation: fadeInUp 0.7s 0.1s ease both;
     }
 
     .hero-title .accent {
-      color: var(--blue-light);
+      color: var(--blue);
       display: inline-block;
     }
 
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: rgba(255,255,255,0.5);
+      color: var(--text-muted);
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -399,7 +387,7 @@
 
     .hero-phrase {
       font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.75);
+      color: #555;
       font-weight: 400;
       line-height: 1.6;
       max-width: 500px;
@@ -408,7 +396,7 @@
     }
 
     .hero-phrase strong {
-      color: var(--white);
+      color: var(--black);
       font-weight: 600;
     }
 
@@ -453,14 +441,13 @@
 
     .btn-secondary {
       background: transparent;
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(8px);
+      color: var(--blue-dark);
+      border: 1.5px solid rgba(21,101,192,0.35);
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.5);
+      background: rgba(21,101,192,0.06);
+      border-color: var(--blue);
       transform: translateY(-2px);
     }
 
@@ -477,7 +464,7 @@
       gap: 32px;
       margin-top: 56px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(0,0,0,0.1);
       animation: fadeInUp 0.7s 0.5s ease both;
     }
 
@@ -490,7 +477,7 @@
     .stat-number {
       font-size: 1.75rem;
       font-weight: 900;
-      color: var(--white);
+      color: var(--black);
       letter-spacing: -0.03em;
       line-height: 1;
     }
@@ -501,7 +488,7 @@
 
     .stat-label {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
+      color: var(--text-muted);
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -810,7 +797,7 @@
        FOOTER
     ============================================ */
     footer {
-      background: var(--black);
+      background: var(--white);
       border-top: 3px solid var(--blue);
       padding: 48px 0 32px;
     }
@@ -850,7 +837,7 @@
     .footer-logo-text {
       font-size: 1rem;
       font-weight: 800;
-      color: var(--white);
+      color: var(--black);
     }
 
     .footer-logo-text span {
@@ -859,7 +846,7 @@
 
     .footer-tagline {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--text-muted);
     }
 
     .footer-info {
@@ -873,21 +860,21 @@
       align-items: center;
       gap: 8px;
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-muted);
     }
 
     .footer-info-item strong {
-      color: rgba(255,255,255,0.85);
+      color: var(--black);
       font-weight: 600;
     }
 
     .footer-bottom {
       margin-top: 32px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(0,0,0,0.08);
       text-align: center;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.25);
+      color: var(--text-muted);
     }
 
     /* ============================================
@@ -1386,7 +1373,7 @@
 
         <div class="footer-brand">
           <a href="#hero" class="footer-logo">
-            <img src="logo.jpg" alt="GAL Electricidad" style="height:68px; width:auto; object-fit:contain; display:block; mix-blend-mode: screen; filter: contrast(1.1);" />
+            <img src="logo.jpg" alt="GAL Electricidad" style="height:68px; width:auto; object-fit:contain; display:block;" />
           </a>
           <span class="footer-tagline">Electricista Matriculado — Córdoba Capital</span>
         </div>
