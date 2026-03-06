@@ -215,18 +215,25 @@
 
     .nav-links {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       list-style: none;
       gap: 0;
+      width: 100%;
     }
 
     .nav-links li {
+      flex: 1;
       border: 1px solid rgba(255,255,255,0.15);
       margin-left: -1px;
     }
 
     .nav-links li:first-child {
       margin-left: 0;
+    }
+
+    .nav-links a {
+      width: 100%;
+      text-align: center;
     }
 
     .nav-links a {
@@ -251,9 +258,6 @@
       font-weight: 700 !important;
     }
 
-    .nav-links li:has(.nav-cta) {
-      margin-left: auto;
-    }
 
     .nav-cta:hover {
       background: var(--blue-light) !important;
