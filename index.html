@@ -553,25 +553,31 @@
 
     /* Tarjeta de emergencia destacada */
     .service-card.emergency {
-      background: var(--black);
-      border-color: rgba(21,101,192,0.25);
+      background: var(--gold);
+      border-color: rgba(0,0,0,0.08);
     }
 
     .service-card.emergency::before {
+      background: linear-gradient(90deg, rgba(0,0,0,0.15), rgba(0,0,0,0.05));
       transform: scaleX(1);
     }
 
     .service-card.emergency .service-title {
-      color: var(--white);
+      color: var(--black);
     }
 
     .service-card.emergency .service-desc {
-      color: rgba(255,255,255,0.55);
+      color: rgba(0,0,0,0.6);
     }
 
     .service-card.emergency .service-icon-wrap {
-      background: rgba(21,101,192,0.12);
-      border-color: rgba(21,101,192,0.25);
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    .service-card.emergency .service-badge {
+      background: var(--black);
+      color: var(--gold);
     }
 
     .service-icon-wrap {
