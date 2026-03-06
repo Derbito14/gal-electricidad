@@ -512,7 +512,8 @@
     ============================================ */
     #servicios {
       padding: 100px 0;
-      background: var(--grey-light);
+      background: var(--white);
+      border-top: 3px solid var(--blue);
     }
 
     .section-header {
@@ -641,20 +642,21 @@
     ============================================ */
     #confianza {
       padding: 100px 0;
-      background: var(--black);
+      background: var(--white);
+      border-top: 3px solid var(--blue);
     }
 
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(21,101,192,0.06);
       border-radius: var(--radius-lg);
       overflow: hidden;
     }
 
     .trust-item {
-      background: var(--black-soft);
+      background: var(--white);
       padding: 44px 36px;
       display: flex;
       flex-direction: column;
@@ -664,7 +666,7 @@
     }
 
     .trust-item:hover {
-      background: var(--grey-dark);
+      background: var(--grey-light);
     }
 
     .trust-icon {
@@ -675,7 +677,7 @@
     .trust-number {
       font-size: 2.5rem;
       font-weight: 900;
-      color: var(--blue-light);
+      color: var(--blue);
       letter-spacing: -0.04em;
       line-height: 1;
     }
@@ -683,74 +685,13 @@
     .trust-title {
       font-size: 1rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
     }
 
     .trust-desc {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-muted);
       line-height: 1.6;
-    }
-
-    /* ============================================
-       GALERÍA
-    ============================================ */
-    #galeria {
-      padding: 100px 0;
-      background: var(--white);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .gallery-item {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-      display: block;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    /* Overlay con ícono de zoom */
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background var(--transition);
-    }
-
-    .gallery-overlay span {
-      font-size: 2rem;
-      opacity: 0;
-      transform: scale(0.7);
-      transition: opacity var(--transition), transform var(--transition);
-    }
-
-    .gallery-item:hover .gallery-overlay {
-      background: rgba(0,0,0,0.35);
-    }
-
-    .gallery-item:hover .gallery-overlay span {
-      opacity: 1;
-      transform: scale(1);
     }
 
     /* ============================================
@@ -758,7 +699,8 @@
     ============================================ */
     #contacto {
       padding: 100px 0;
-      background: var(--grey-dark);
+      background: var(--white);
+      border-top: 3px solid var(--blue);
     }
 
     .contact-wrapper {
@@ -805,18 +747,18 @@
     .contact-item-value {
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--white);
+      color: var(--black);
     }
 
     .contact-item-sub {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.4);
+      color: var(--text-muted);
       margin-top: 2px;
     }
 
     .contact-cta-box {
-      background: var(--black);
-      border: 1px solid rgba(21,101,192,0.1);
+      background: var(--grey-light);
+      border: 1px solid rgba(21,101,192,0.2);
       border-radius: var(--radius-xl);
       padding: 44px;
       display: flex;
@@ -827,7 +769,7 @@
     .contact-cta-title {
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--white);
+      color: var(--black);
       line-height: 1.3;
     }
 
@@ -837,8 +779,20 @@
 
     .contact-cta-desc {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.5);
+      color: var(--text-muted);
       line-height: 1.65;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--blue-dark);
+      border: 1.5px solid rgba(21,101,192,0.35);
+    }
+
+    .btn-outline:hover {
+      background: rgba(21,101,192,0.06);
+      border-color: var(--blue);
+      transform: translateY(-2px);
     }
 
     .contact-buttons {
@@ -857,7 +811,7 @@
     ============================================ */
     footer {
       background: var(--black);
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 3px solid var(--blue);
       padding: 48px 0 32px;
     }
 
@@ -1018,14 +972,6 @@
 
     /* Tablet */
     @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item:last-child {
-        grid-column: 1 / -1;
-      }
-
       .contact-wrapper {
         grid-template-columns: 1fr;
         gap: 48px;
@@ -1066,14 +1012,6 @@
 
       .stat-number {
         font-size: 1.4rem;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item:last-child {
-        grid-column: auto;
       }
 
       .footer-inner {
@@ -1135,7 +1073,6 @@
         <ul class="nav-links">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#confianza">Nosotros</a></li>
-          <li><a href="#galeria">Trabajos</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20un%20presupuesto" target="_blank" class="nav-cta">WhatsApp</a></li>
         </ul>
@@ -1147,7 +1084,6 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#servicios" class="mobile-link">Servicios</a>
     <a href="#confianza" class="mobile-link">Nosotros</a>
-    <a href="#galeria" class="mobile-link">Trabajos</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
     <a href="https://wa.me/5493544564388?text=Hola%20GAL%20Electricidad%2C%20quiero%20un%20presupuesto" target="_blank" class="mobile-link" style="color: var(--blue-light); font-size: 1.1rem;">WhatsApp ↗</a>
   </div>
@@ -1300,9 +1236,9 @@
     <div class="container">
 
       <div class="section-header reveal">
-        <div class="section-label" style="background:rgba(21,101,192,0.1); border-color:rgba(21,101,192,0.25);">Por qué elegirnos</div>
-        <h2 class="section-title" style="color:var(--white);">Razones para <span>confiar</span> en nosotros</h2>
-        <p class="section-subtitle" style="color:rgba(255,255,255,0.5); margin:0 auto;">
+        <div class="section-label">Por qué elegirnos</div>
+        <h2 class="section-title">Razones para <span>confiar</span> en nosotros</h2>
+        <p class="section-subtitle" style="margin:0 auto;">
           Más de 5 años de experiencia nos respaldan. Trabajo serio, prolijo y con garantía.
         </p>
       </div>
@@ -1343,71 +1279,6 @@
 
 
   <!-- ============================================
-       GALERÍA
-  ============================================ -->
-  <section id="galeria">
-    <div class="container">
-
-      <div class="section-header reveal">
-        <div class="section-label">Nuestros trabajos</div>
-        <h2 class="section-title">Resultados que <span>hablan solos</span></h2>
-        <p class="section-subtitle">
-          Cada instalación refleja nuestro compromiso con la calidad, la seguridad y el detalle.
-        </p>
-      </div>
-
-      <div class="gallery-grid">
-
-        <!--
-          REEMPLAZAR estas imágenes con fotos reales de los trabajos.
-          Podés usar imágenes locales: src="img/trabajo1.jpg"
-          O subir las fotos a Cloudinary/ImgBB y poner la URL directa.
-        -->
-
-        <div class="gallery-item reveal-left">
-          <!-- Placeholder SVG generado inline como imagen -->
-          <img
-            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80"
-            alt="Instalación de tablero eléctrico"
-            loading="lazy"
-          />
-          <div class="gallery-overlay"><span>🔍</span></div>
-        </div>
-
-        <div class="gallery-item reveal">
-          <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-            alt="Instalación eléctrica domiciliaria"
-            loading="lazy"
-          />
-          <div class="gallery-overlay"><span>🔍</span></div>
-        </div>
-
-        <div class="gallery-item reveal-right">
-          <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-            alt="Iluminación LED instalada"
-            loading="lazy"
-          />
-          <div class="gallery-overlay"><span>🔍</span></div>
-        </div>
-
-      </div>
-
-      <div style="text-align:center; margin-top:40px;" class="reveal">
-        <p style="font-size:0.9rem; color:var(--text-muted);">
-          ¿Querés ver más trabajos?
-          <a href="https://wa.me/5493544564388" target="_blank" style="color:var(--blue); font-weight:600; text-decoration:none;">
-            Escribinos por WhatsApp →
-          </a>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ============================================
        CONTACTO
   ============================================ -->
   <section id="contacto">
@@ -1419,9 +1290,9 @@
         <div class="contact-info reveal-left">
 
           <div>
-            <div class="section-label" style="background:rgba(21,101,192,0.1); border-color:rgba(21,101,192,0.25);">Contacto</div>
-            <h2 class="section-title" style="color:var(--white);">Hablemos de tu <span>proyecto</span></h2>
-            <p style="font-size:0.95rem; color:rgba(255,255,255,0.45); line-height:1.7; margin-top:8px;">
+            <div class="section-label">Contacto</div>
+            <h2 class="section-title">Hablemos de tu <span>proyecto</span></h2>
+            <p style="font-size:0.95rem; color:var(--text-muted); line-height:1.7; margin-top:8px;">
               Contanos qué necesitás y te respondemos a la brevedad con un presupuesto sin cargo.
             </p>
           </div>
@@ -1491,7 +1362,7 @@
             </a>
 
             <!-- Reemplazar número -->
-            <a href="tel:+5493544564388" class="btn btn-secondary btn-full">
+            <a href="tel:+5493544564388" class="btn btn-outline btn-full">
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
